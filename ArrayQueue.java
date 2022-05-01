@@ -8,8 +8,10 @@ class Queue{
     boolean isFull(){
         return rear == (size-1);
     }
-    boolean isEmpty(){
-        return rear == -1;
+    void isEmpty() throws EmptyQueueException{
+        if(rear == -1){
+            throw new EmptyQueueException();
+        }
     }
     int enqueue(int data){
         if(isFull()){
@@ -20,10 +22,8 @@ class Queue{
         arr[rear] = data;
         return 1;
     }
-    int dequeueFront(){   //Time complexity : O(n);
-        if(isEmpty()){
-            return 0;
-        }
+    int dequeueFront() throws EmptyQueueException{   //Time complexity : O(n);
+        isEmpty();
         int i =0;
         while(i<rear){
             arr[i]=arr[i+1];
@@ -45,14 +45,17 @@ class Queue{
         return arr[0];
     }
     int lastElement(){
+        
         return arr[rear];
     }
 }
 public class ArrayQueue {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws EmptyQueueException{
         Queue ql = new Queue(7);
         System.out.println("\t* is Full : "+ql.isFull());
-        System.out.println("\t* is Empty : "+ql.isEmpty());
+        try{
+        ql.isEmpty();
+        }catch(EmptyQueueException e){System.out.println(e.getMessage());};
         ql.enqueue(10);
         ql.enqueue(20);
         ql.enqueue(30);
@@ -69,7 +72,17 @@ public class ArrayQueue {
         System.out.println("\t* Last element : "+ql.lastElement());
         ql.display();
         ql.enqueue(70);
+        try{
+        ql.dequeueFront();
+        ql.dequeueFront();
+        ql.dequeueFront();
+        ql.dequeueFront();
+        ql.dequeueFront();
+        //ql.dequeueFront();
+        // ql.dequeueFront();
+        }catch(EmptyQueueException e2){};
+
         System.out.println("\t* Last element : "+ql.lastElement());
-        System.out.println("\t* is Empty : "+ql.isEmpty());
+        ql.isEmpty();
     }
 }
