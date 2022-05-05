@@ -28,7 +28,7 @@ class QueueF{
         }
         int x = arr[front];
         front = front + 1;
-        if(front==size){front = 0; rear = -1;}
+        if(front==size){front = 0; rear = -1;} //Queue Reset : 
         currentS--;
         return x;
     }
