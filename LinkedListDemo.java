@@ -172,7 +172,6 @@ class LinkedList {
 
 public class LinkedListDemo {
     public static void main(String[] args) {
-        int i = 0;
         LinkedList ls = new LinkedList();
         ls.insertFront(50); // Node 4 : // 50
         ls.insertFront(60); // Node 2 : // 60 50
