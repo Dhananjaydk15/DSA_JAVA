@@ -9,7 +9,7 @@ class st{
         arr = new int[size];
     }
     boolean isFull(){
-        return top == top-1;
+        return top == (size-1);
     }
     boolean isEmpty(){
         return top == -1;
@@ -17,6 +17,7 @@ class st{
     void push(int element){
         if(isFull()){
             System.out.println("\t* Stack Overflow : ");
+            return;
         }
         top = top + 1;
         arr[top] = element;
@@ -53,6 +54,7 @@ public class Stack {
      obj.push(12);
      obj.push(13);
      obj.push(14);
+     obj.push(24);
      int i = 0;
      obj.displayStack(obj);
      System.out.println(obj.pop()+" is poped : ");// remove 14 from stack :

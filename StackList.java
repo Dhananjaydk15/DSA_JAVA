@@ -54,7 +54,10 @@ public class StackList {
         obj.push(60);
         obj.push(70);
 
+        System.out.println("\t* List before pop : ");
+        obj.display();
         obj.pop();
+        System.out.println("\t* List After pop : ");
         obj.display();
     }
 }
