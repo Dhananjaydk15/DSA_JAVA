@@ -1,5 +1,3 @@
-import javax.xml.transform.Source;
-
 class CirculerLinkedList {
     class Node {
         int data;
@@ -115,6 +113,51 @@ class CirculerLinkedList {
         LastNode.next = head;
         return x;
     }
+
+    int delete(int element)
+    {
+        int x = 0;
+        if(head == null)
+        {
+            System.out.println("\t* List is Empty : ");
+            return 0;
+        }
+        if(element==head.data)
+        {
+            if(head==LastNode)
+            {
+                x = head.data;
+                head = null;
+                return x;
+            }
+            else
+            x = head.data;
+            head = head.next;
+            LastNode.next = head;
+            return x;
+        }
+        Node curr = head.next;
+        Node prev = head;
+        while(curr.data!=element)
+        {
+            if(curr.next==head)
+            {
+                System.out.println("\t* Element is not found : ");
+                return 0;
+            }
+            prev = prev.next;
+            curr = curr.next;
+        }
+        x = curr.data;
+        if(curr==LastNode)
+        {
+            LastNode = prev;
+            LastNode.next = head;
+            return x;
+        }
+        prev.next = curr.next;
+        return x;
+    }
     void display() {
         if(head == null)
         {
@@ -149,15 +192,19 @@ public class CirculerLinkedListDemo {
         System.out.println("\t* List : ");
         ls.display();
         System.out.println("\t* List after deletion : ");
-        System.out.println("\t* Delete : "+ls.deleteFront());
-        System.out.println("\t* Delete : "+ls.deleteFront());
-        System.out.println("\t* Delete : "+ls.deleteEnd());
-        System.out.println("\t* Delete : "+ls.deleteFront());
-        System.out.println("\t* Delete : "+ls.deleteEnd());
-        System.out.println("\t* Delete : "+ls.deleteEnd());
-        //System.out.println("\t* Delete : "+ls.deleteEnd());
-        //System.out.println("\t* Delete : "+ls.deleteEnd());
-        System.out.println("\t* Delete : "+ls.deleteFront());
+        // System.out.println("\t* Delete : "+ls.deleteFront());
+        // System.out.println("\t* Delete : "+ls.deleteFront());
+        // System.out.println("\t* Delete : "+ls.deleteEnd());
+        // System.out.println("\t* Delete : "+ls.deleteFront());
+        // System.out.println("\t* Delete : "+ls.deleteEnd());
+        // System.out.println("\t* Delete : "+ls.deleteEnd());
+        // System.out.println("\t* Delete : "+ls.deleteEnd());
+        // System.out.println("\t* Delete : "+ls.deleteEnd());
+        // System.out.println("\t* Delete : "+ls.deleteFront());
+        System.out.println("\t* Delete : "+ls.delete(25));
+        System.out.println("\t* Delete : "+ls.delete(10));
+        System.out.println("\t* Delete : "+ls.delete(45));
+
         
         ls.display();
 
