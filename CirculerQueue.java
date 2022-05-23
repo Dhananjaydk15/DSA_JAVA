@@ -7,7 +7,7 @@ class CirculerQueue{
     }
     boolean isEmpty(){
 
-        return front == -1;
+        return rear == -1 ;
     }
     boolean isFull(){
         return ((rear + 1)%size) == front;
@@ -30,12 +30,18 @@ class CirculerQueue{
             return 0;
         }
         int x = arr[front];
+        if(front==rear)
+        {
+            front=0;
+            rear = -1;
+            return x;
+        }
         front = (front + 1)%size;
         //if(front==rear){front = 0; rear = -1;}//Reset the Queue : 
         return x;
     }
     int display(){
-        if(!(front == rear)&&(front!=size||rear!=size)){
+        if(isEmpty()){
             System.out.println("\t* Queue is Empty : ");
             return -1;
         }

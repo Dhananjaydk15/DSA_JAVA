@@ -7,6 +7,9 @@ public class CirculerQueueDemo {
         q.enqueue(30);        
         q.enqueue(40);
         q.enqueue(50);
+        q.dequeue();
+        q.enqueue(60);
+
 
         System.out.println("list : ");
         q.display();        
@@ -15,7 +18,9 @@ public class CirculerQueueDemo {
         System.out.println("dequeue : "+q.dequeue());
         System.out.println("dequeue : "+q.dequeue());
         System.out.println("dequeue : "+q.dequeue());
-        //System.out.println("dequeue : "+q.dequeue());
+        System.out.println("dequeue : "+q.dequeue());
+        System.out.println("dequeue : "+q.dequeue());
+
 
         // q.dequeue();
         // q.dequeue();
