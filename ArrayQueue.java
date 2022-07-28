@@ -1,3 +1,6 @@
+//Without Front Pointer :
+complexity of Deletion : O(n);
+more mamory effieciant : 
 class Queue{
     int rear = -1 ,size;
     int arr[];
