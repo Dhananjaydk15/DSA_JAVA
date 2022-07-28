@@ -22,7 +22,7 @@ class QueueF{
         arr[rear] = data;
         return 1;
     }
-    int dequeue(){
+    int dequeue(){                                          //Complexity : O(1) : 
         if(isEmpty()){
             System.out.println("Queue is Empty : ");
         }
